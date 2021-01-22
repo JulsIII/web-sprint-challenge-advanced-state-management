@@ -1,11 +1,33 @@
+import { FETCH_SMURFS_WAIT, FETCH_SMURFS_FAIL} from './../actions';
+
 
 export const initialState = {
+        name:'',
+        position:'',
+        nickname: '',
+        description: ''
 }
 
-const reducer = ()=>{
+export const reducer = (state = initialState, action)=>{
+    switch (action.type) {
+        case(FETCH_SMURFS_WAIT):
+          return({
+            // ...state,
+            // isFetching: true,
+            // error:'',
+            // joke:''
+          });
+        case(FETCH_SMURFS_FAIL):
+          return({
+            // ...state,
+            // error: action.payload,
+            // isFetching: false
+          });
+        default:
+          return state;
+      }
 }
 
-export default reducer;
 
 //Task List:
 //1. Add in the initialState needed to hold: 

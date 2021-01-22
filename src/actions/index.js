@@ -13,3 +13,39 @@ import axios from 'axios';
 //3. Add set error text action:
 //              - return action object setting error text
 //4. Any other actions you deem nessiary to complete application.
+
+// export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
+export const FETCH_SMURFS_FAIL = "FETCH_SMURFS_FAIL";
+export const FETCH_SMURFS_WAIT = "FETCH_SMURFS_WAIT";
+
+export const fetchSmurfs = () => dispatch => {
+    // dispatch({ type:FETCH_SMURFS_START});
+    axios 
+        .get('http://localhost:3333/smurfs')
+        
+        .then((res)=>{
+            console.log('the get*****', res.data);
+            dispatch({ type:FETCH_SMURFS_WAIT, payload: res.data});
+        })
+        .catch(err => {
+            dispatch({ type:FETCH_SMURFS_FAIL, payload: 'ErrorText'});
+        });
+        
+}
+
+export const addSmurfs = () => dispatch => {
+    // dispatch({ type:FETCH_SMURFS_START});
+    // axios 
+    //     .get('http://localhost:3333/smurfs')
+        
+    //     .then((res)=>{
+    //         console.log('the get*****', res.data);
+    //         dispatch({ type:FETCH_SMURFS_WAIT, payload: res.data});
+    //     })
+    //     .catch(err => {
+    //         dispatch({ type:FETCH_SMURFS_FAIL, payload: 'ErrorText'});
+    //     });
+        
+}
+
+// err.response.code

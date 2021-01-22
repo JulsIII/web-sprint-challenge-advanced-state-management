@@ -1,6 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addSmurfs } from '../actions';
 
 class AddForm extends React.Component {
+
+    state = {
+        name: this.props.name,
+        position: this.props.position,
+        nickname: this.props.nickname,
+        description: this.props.description
+      };
+
 
     render() {
         return(<section>
@@ -9,6 +19,12 @@ class AddForm extends React.Component {
                 <div className="form-group">
                     <label htmlFor="name">Name:</label><br/>
                     <input onChange={this.handleChange} name="name" id="name" />
+                    <label htmlFor="position">Position:</label><br/>
+                    <input onChange={this.handleChange} name="position" id="position" />
+                    <label htmlFor="nickname">Nickname:</label><br/>
+                    <input onChange={this.handleChange} name="nickname" id="nickname" />
+                    <label htmlFor="description">Description:</label><br/>
+                    <input onChange={this.handleChange} name="description" id="description" />
                 </div>
 
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: </div>
@@ -17,8 +33,11 @@ class AddForm extends React.Component {
         </section>);
     }
 }
+const mapStateToProps = state => ({
+    // friends: state.friendsReducer.friends
+  });
 
-export default AddForm;
+export default connect(mapStateToProps, {addSmurfs})(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.
