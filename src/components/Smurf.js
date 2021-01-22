@@ -5,18 +5,23 @@ class Smurf extends React.Component {
     render() {
         const { smurf } = this.props;
 
-        return(<div data-testid="smurf" className="card">
+        return(
+        <div data-testid="smurf" className="card">
+            <h1>{smurf.name}</h1>
+            <h1>{smurf.position}</h1>
+            <h1>{smurf.nickname}</h1>
+            <h1>{smurf.description}</h1>
         </div>);
     }
 }
 
-const mapStateToProps = state => {
-    return {
-    //   joke: state.joke,
-    //   isFetching: state.isFetching,
-    //   error: state.error
-    };
-  };
+// const mapStateToProps = state => {
+//     return {
+//     //   joke: state.joke,
+//     //   isFetching: state.isFetching,
+//     //   error: state.error
+//     };
+//   };
 
 export default (Smurf);
 

@@ -51,25 +51,3 @@ export const addSmurf = (body) => dispatch => {
         
 }
 
-// export function addSmurf(newSmurf) {
-//     return {
-//       type: ADD_SMURF_TO_LIST,
-//       payload: newSmurf
-//     };
-//   }
-  
-//   export function addNewFriend(newFriend) {
-//     return {
-//       type: ADD_FRIEND,
-//       payload: newFriend
-//     };
-//   }
-  
-//   export function toggleFriend(index) {
-//     return {
-//       type: TOGGLE_FRIEND,
-//       payload: index
-//     };
-//   }
-
-// err.response.code

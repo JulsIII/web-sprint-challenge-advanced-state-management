@@ -15,9 +15,7 @@ export class SmurfDisplay extends React.Component {
 
 const mapStateToProps = state => {
     return {
-    //   joke: state.joke,
-    //   isFetching: state.isFetching,
-    //   error: state.error
+
     };
   };
 
