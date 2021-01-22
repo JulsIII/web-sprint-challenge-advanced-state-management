@@ -14,38 +14,62 @@ import axios from 'axios';
 //              - return action object setting error text
 //4. Any other actions you deem nessiary to complete application.
 
-// export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
-export const FETCH_SMURFS_FAIL = "FETCH_SMURFS_FAIL";
-export const FETCH_SMURFS_WAIT = "FETCH_SMURFS_WAIT";
+// FETCH_SMURFS_START, FETCH_SMURF_END, ADD_SMURF_TO_LIST, SET_ERROR_TEXT
+
+export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
+export const FETCH_SMURF_END = "FETCH_SMURF_END";
+export const ADD_SMURF_TO_LIST = "ADD_SMURF_TO_LIST";
+export const SET_ERROR_TEXT = "SET_ERROR_TEXT";
 
 export const fetchSmurfs = () => dispatch => {
-    // dispatch({ type:FETCH_SMURFS_START});
+    dispatch({ type:FETCH_SMURFS_START});
     axios 
         .get('http://localhost:3333/smurfs')
         
         .then((res)=>{
             console.log('the get*****', res.data);
-            dispatch({ type:FETCH_SMURFS_WAIT, payload: res.data});
+            dispatch({ type:FETCH_SMURF_END, payload: res.data});
         })
         .catch(err => {
-            dispatch({ type:FETCH_SMURFS_FAIL, payload: 'ErrorText'});
+            dispatch({ type:SET_ERROR_TEXT, payload: 'Get Failed'});
         });
         
 }
 
-export const addSmurfs = () => dispatch => {
-    // dispatch({ type:FETCH_SMURFS_START});
-    // axios 
-    //     .get('http://localhost:3333/smurfs')
+// export const addSmurf = () => dispatch => {
+//     dispatch({ type:FETCH_SMURFS_START});
+//     axios 
+//         .get('http://localhost:3333/smurfs')
         
-    //     .then((res)=>{
-    //         console.log('the get*****', res.data);
-    //         dispatch({ type:FETCH_SMURFS_WAIT, payload: res.data});
-    //     })
-    //     .catch(err => {
-    //         dispatch({ type:FETCH_SMURFS_FAIL, payload: 'ErrorText'});
-    //     });
+//         .then((res)=>{
+//             console.log('the get*****', res.data);
+//             dispatch({ type:FETCH_SMURF_END, payload: res.data});
+//         })
+//         .catch(err => {
+//             dispatch({ type:SET_ERROR_TEXT, payload: 'Get Failed'});
+//         });
         
 }
+
+// export function addSmurf(newSmurf) {
+//     return {
+//       type: ADD_SMURF_TO_LIST,
+//       payload: newSmurf
+//     };
+//   }
+  
+//   export function addNewFriend(newFriend) {
+//     return {
+//       type: ADD_FRIEND,
+//       payload: newFriend
+//     };
+//   }
+  
+//   export function toggleFriend(index) {
+//     return {
+//       type: TOGGLE_FRIEND,
+//       payload: index
+//     };
+//   }
 
 // err.response.code

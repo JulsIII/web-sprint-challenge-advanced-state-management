@@ -2,9 +2,9 @@ import { FETCH_SMURFS_START, FETCH_SMURF_END, ADD_SMURF_TO_LIST, SET_ERROR_TEXT}
 
 
 export const initialState = {
-    [],
-    loading: false,
-    errorText: 'null'
+    smurfs: [],
+    isFetching: false,
+    error: 'null'
 }
 
 export const reducer = (state = initialState, action)=>{
@@ -24,7 +24,7 @@ export const reducer = (state = initialState, action)=>{
         case(ADD_SMURF_TO_LIST):
           return({
             ...state,
-            
+
             
           });
           case(SET_ERROR_TEXT):
