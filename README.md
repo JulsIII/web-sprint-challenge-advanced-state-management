@@ -34,8 +34,8 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 ### Task 1: Project Set Up
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
+- [*] `fork & clone` this repository.
+- [*] `cd` into the forked copy of this repository.
 
 **Setting up the CodeGrade webhook**
 
