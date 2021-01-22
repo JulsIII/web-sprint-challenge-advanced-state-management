@@ -31,25 +31,25 @@ export const fetchSmurfs = () => dispatch => {
             dispatch({ type:FETCH_SMURF_END, payload: res.data});
         })
         .catch(err => {
-            dispatch({ type:SET_ERROR_TEXT, payload: 'Get Failed'});
+            dispatch({ type:SET_ERROR_TEXT, payload: err.message});
         });
         
 }
 
-// export const addSmurf = () => dispatch => {
-//     dispatch({ type:FETCH_SMURFS_START});
-//     axios 
-//         .get('http://localhost:3333/smurfs')
+export const addSmurf = (body) => dispatch => {
+    dispatch({ type:FETCH_SMURFS_START});
+    axios 
+        .post('http://localhost:3333/smurfs', body)
         
-//         .then((res)=>{
-//             console.log('the get*****', res.data);
-//             dispatch({ type:FETCH_SMURF_END, payload: res.data});
-//         })
-//         .catch(err => {
-//             dispatch({ type:SET_ERROR_TEXT, payload: 'Get Failed'});
-//         });
+        .then((res)=>{
+            console.log('the post*****', res.data);
+            dispatch({ type:ADD_SMURF_TO_LIST, payload: res.data});
+        })
+        .catch(err => {
+            dispatch({ type:SET_ERROR_TEXT, payload: err.message});
+        });
         
-// }
+}
 
 // export function addSmurf(newSmurf) {
 //     return {

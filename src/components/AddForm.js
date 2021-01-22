@@ -1,15 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSmurfs } from '../actions';
+import { addSmurf } from '../actions';
 
 class AddForm extends React.Component {
 
     state = {
-        name: this.props.name,
-        position: this.props.position,
-        nickname: this.props.nickname,
-        description: this.props.description
-      };
+        newSmurf: {
+            name: '',
+            nickName:  ''       }    
+        }
+        // name: this.props.name,
+        // position: this.props.position,
+        // nickname: this.props.nickname,
+        // description: this.props.description
+     
+        handleChange = (e) => {
+            this.state({[e.target.name]: e.target.value})
+        }
 
 
     render() {
@@ -37,7 +44,7 @@ const mapStateToProps = state => ({
     // friends: state.friendsReducer.friends
   });
 
-export default connect(mapStateToProps, {addSmurfs})(AddForm);
+export default connect(mapStateToProps, {addSmurf})(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.

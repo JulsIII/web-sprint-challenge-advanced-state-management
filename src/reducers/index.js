@@ -24,8 +24,8 @@ export const reducer = (state = initialState, action)=>{
         case(ADD_SMURF_TO_LIST):
           return({
             ...state,
-
-            
+            smurfs: action.payload,
+            isFetching: false
           });
           case(SET_ERROR_TEXT):
           return({
