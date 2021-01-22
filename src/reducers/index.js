@@ -1,27 +1,36 @@
-import { FETCH_SMURFS_WAIT, FETCH_SMURFS_FAIL} from './../actions';
+import { FETCH_SMURFS_START, FETCH_SMURF_END, ADD_SMURF_TO_LIST, SET_ERROR_TEXT} from './../actions';
 
 
 export const initialState = {
-        name:'',
-        position:'',
-        nickname: '',
-        description: ''
+    [],
+    loading: false,
+    errorText: 'null'
 }
 
 export const reducer = (state = initialState, action)=>{
     switch (action.type) {
-        case(FETCH_SMURFS_WAIT):
+        case(FETCH_SMURFS_START):
           return({
-            // ...state,
-            // isFetching: true,
-            // error:'',
-            // joke:''
+            ...state,
+            isFetching: true,
+            smurfs:[]
           });
-        case(FETCH_SMURFS_FAIL):
+        case(FETCH_SMURF_END):
           return({
-            // ...state,
-            // error: action.payload,
-            // isFetching: false
+            ...state,
+            smurfs: action.payload,
+            isFetching: false
+          })
+        case(ADD_SMURF_TO_LIST):
+          return({
+            ...state,
+            
+            
+          });
+          case(SET_ERROR_TEXT):
+          return({
+            ...state,
+            error: action.payload
           });
         default:
           return state;
