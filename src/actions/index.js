@@ -49,7 +49,7 @@ export const fetchSmurfs = () => dispatch => {
 //             dispatch({ type:SET_ERROR_TEXT, payload: 'Get Failed'});
 //         });
         
-}
+// }
 
 // export function addSmurf(newSmurf) {
 //     return {
