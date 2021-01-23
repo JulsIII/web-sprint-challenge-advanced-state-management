@@ -15,8 +15,9 @@ export class SmurfDisplay extends React.Component {
 
 const mapStateToProps = state => {
     return {
-
-    };
+        smurfs: state.smurfs,
+        isFetching: state.isFetching,
+        error: state.error
   };
 
 export default connect(mapStateToProps, Smurf)(SmurfDisplay);
